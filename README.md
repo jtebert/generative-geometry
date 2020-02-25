@@ -1,5 +1,7 @@
 # Generative Geometric Designs
 
+Playing around with procedurally-generated graphics in Python. Currently it's one thing that generates raster images, but I also want to try out creating vector graphics this way.
+
 ## Installation/Setup
 
 Create and activate a virtual environment:
@@ -30,7 +32,7 @@ Change these in `rand_triangles/triangle_params.yaml`
 
 - `bg_type` (str):
   Whether to fill the background with an `image`, `gradient` or solid `color`
-- `out_filename (str):
+- `out_filename` (str):
   Filename of the output image
 - `fg_color` (str):
   Hex string of the color of the triangles
