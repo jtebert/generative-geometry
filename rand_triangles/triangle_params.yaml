@@ -1,0 +1,22 @@
+bg_type: gradient # image, color, gradient
+out_filename: triangles.png
+
+fg_color: "#fff"
+
+bg_image: "test.jpg" # This file isn't in the repo
+bg_color: "#333"
+bg_gradient:
+  - "#191654"
+  - "#43C6AC"
+gradient_dir: vert # vert or horz (also used for variable fill_prob)
+
+# When using an image background, the only the number of rows will be used; other values will be set based on the image dimensions
+grid_dim: 50 # pixels per column/row
+num_rows: 25
+num_cols: 18
+
+# fill_prob: 0.6
+fill_prob:
+  - .1
+  - 1
+fill_empty: true
