@@ -1,0 +1,20 @@
+# Source file
+source_img: the-great-wave-sm.jpg
+
+# Leave off the output file extension; it will be generated automatically
+out_filename: 'tri_great_wave'
+
+# Width of the output image (pixels)
+out_width: 1920
+
+# Number of columns of triangles
+num_cols: 120
+
+# Width of the square area (px in the original image coordinates) in the center
+# of each triangle to average to generate the color of the triangle. If not set,
+# it will default to 1px (center coordinate only)
+color_average_width: 3
+
+# You can generate an output PNG, SVG, or both.
+generate_svg: true
+generate_png: true

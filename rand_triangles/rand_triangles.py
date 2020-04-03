@@ -9,7 +9,6 @@ from PIL import Image, ImageDraw
 
 
 # Parameters
-
 with open(r'triangle_params.yaml') as file:
     PARAMS = yaml.load(file, Loader=yaml.FullLoader)
 
@@ -70,10 +69,31 @@ def transform_coords(coords, row_col, grid_dim):
     ]
 
 
+def draw_grid(draw, num_rows, num_cols, grid_dim):
+    """
+    Draw a grid of the squares
+    """
+    # Draw rows
+    for r in range(1, num_rows):
+        draw.line([(0, r*grid_dim), (num_cols*grid_dim, r*grid_dim)], '#666')
+    # Draw columns
+    for c in range(1, num_cols):
+        draw.line([(c*grid_dim, 0), (c*grid_dim, num_rows*grid_dim)], '#666')
+
+
 def gen_triangles():
     """
     Create all the triangles
     """
+
+    # Seed the random number generator
+    try:
+        random.seed(PARAMS['rand_seed'])
+    except KeyError:
+        # No random seed specified; proceed with default seeding
+        rand_seed = random.randint(0, 99999999999999999)  # I know this is hacky
+        random.seed(rand_seed)
+        print('Random seed:', rand_seed)
 
     # Create the canvas
     if PARAMS['bg_type'] == 'image':
@@ -148,6 +168,14 @@ def gen_triangles():
                 transform_coords([(0, 0), (1, 1)], row_col, grid_dim),
                 fill=PARAMS['fg_color']
             )
+
+    # Draw a grid, if you're supposed to
+    try:
+        if PARAMS['show_grid']:
+            draw_grid(draw, num_rows, num_cols, grid_dim)
+    except KeyError:
+        # show_grid not specified; default to False (no grid)
+        pass
 
     # Save
     im.save(PARAMS['out_filename'], 'PNG')

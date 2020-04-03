@@ -1,10 +1,10 @@
-bg_type: gradient # image, color, gradient
+bg_type: color # image, color, gradient
 out_filename: triangles.png
 
 fg_color: "#fff"
 
 bg_image: "test.jpg" # This file isn't in the repo
-bg_color: "#333"
+bg_color: "#d00"
 bg_gradient:
   - "#191654"
   - "#43C6AC"
@@ -20,3 +20,6 @@ fill_prob:
   - .1
   - 1
 fill_empty: true
+
+show_grid: true
+rand_seed: 92746752952980089
